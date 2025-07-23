@@ -20,3 +20,5 @@ var removeNthFromEnd = function (head, n) {
   second.next = second.next.next;
   return sentinel.next;
 };
+
+//hi from dsa
