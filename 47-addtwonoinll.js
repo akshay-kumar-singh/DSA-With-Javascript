@@ -3,6 +3,7 @@ var addTwoNumbers = function (l1, l2) {
   let dummy = new ListNode(0);
   // Pointer to the current node in the result list
   let curr = dummy;
+  // Initialize carry to 0
   let carry = 0;
 
   while (l1 || l2 || carry) {
