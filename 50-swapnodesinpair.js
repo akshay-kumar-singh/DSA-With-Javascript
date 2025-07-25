@@ -23,5 +23,5 @@ var swapNodesInPairs = function (head) {
     n = c && c.next; // Move n to the second node of the next pair
   }
 
-  return dummy.next; // Return the new head of the list
+  return dummy.next;
 };
