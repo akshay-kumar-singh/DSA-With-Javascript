@@ -48,24 +48,48 @@ var postorderTraversal = function (root) {
   return ans;
 };
 
-
 //Iterative Approach using 2 stack
 
-var postorderTraversal = function(root){
-    if(!root) return [];
-    let s1 = [root];
-    let s2 = [];
+var postorderTraversal = function (root) {
+  if (!root) return [];
+  let s1 = [root];
+  let s2 = [];
 
-    while(s1.length){
-        let curr = s1.pop();
-        s2.push(curr);
-        curr.left && s1.push(curr.left);
-        curr.right && s1.push(curr.right);
+  while (s1.length) {
+    let curr = s1.pop();
+    s2.push(curr);
+    curr.left && s1.push(curr.left);
+    curr.right && s1.push(curr.right);
+  }
+
+  let ans = [];
+  while (s2.length) {
+    ans.push(s2.pop().val);
+  }
+  return ans;
+};
+
+//Iterative Approach using 1 stack
+
+var postorderTraversal = function (root) {
+  let stack = [];
+  let curr = root;
+  let ans = [];
+  let lastVisited = null;
+
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
     }
 
-    let ans = [];
-    while(s2.length){
-        ans.push(s2.pop().val);
+    let peek = stack[stack.length - 1];
+    if (peek.right && peek.right != lastVisited) {
+      curr = peek.right;
+    } else {
+      ans.push(peek.val);
+      lastVisited = stack.pop();
     }
-    return ans;
-}
+  }
+  return ans;
+};
