@@ -16,3 +16,23 @@ var maxProduct = function(arr) {
 
   return totalMax;
 };
+
+//Approach 2
+
+var maxProduct = function(arr) {
+    let n = arr.length; 
+    let ltrProd = 1, rtlProd = 1;
+    let finalMax = -Infinity;
+
+    for (let i = 0; i < n; i++) {
+        ltrProd = ltrProd * arr[i];
+        rtlProd = rtlProd * arr[n - i - 1];
+
+        finalMax = Math.max(finalMax, ltrProd, rtlProd);
+
+        if (ltrProd === 0) ltrProd = 1;
+        if (rtlProd === 0) rtlProd = 1;
+    }
+
+    return finalMax;
+};
