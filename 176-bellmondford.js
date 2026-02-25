@@ -21,4 +21,4 @@ const edges = [
 ];
 
 let V = 5;
-console.log(bellmanford(edges, V, 0));
+// console.log(bellmanford(edges, V, 0));
